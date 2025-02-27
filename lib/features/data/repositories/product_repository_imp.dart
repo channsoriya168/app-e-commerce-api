@@ -51,6 +51,27 @@ class ProductRepositoryImp implements ProductRepository {
        throw Exception('Failed to load products $e');
      }
   }
+  
+  @override
+  Future<ProductEntity> getProductById(int productId) async{
+    try {
+     final data = await productRemoteData.getProductById(productId);
+      return ProductEntity(
+        id: data.id,
+        title: data.title,
+        price: data.price,
+        description: data.description,
+        category: data.category,
+        image: data.image,
+        rating: Rating(
+          rate: data.rating.rate,
+           count: data.rating.count)
+      );
+    } catch (e) {
+      throw Exception('Failed to load products $e');
+      
+    }
+  }
 
   
 }

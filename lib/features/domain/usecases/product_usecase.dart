@@ -22,4 +22,12 @@ Future<List<ProductEntity>> getProductByCategory(String category)async{
     throw Exception(e);
   }
 }
+Future<ProductEntity> getProductById(int productId) async{
+  try {
+    var data=await productRepository.getProductById(productId);
+    return data;
+  } catch (e) {
+    throw Exception(e);
+  }
+}
 }

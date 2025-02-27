@@ -13,7 +13,9 @@ class search_widget extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: TextField(
+          style: TextStyle(color: Colors.white),
           decoration: InputDecoration(
+            
             hintText: 'Search',
             filled: true, 
             hintStyle:const TextStyle(

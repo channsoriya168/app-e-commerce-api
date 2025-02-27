@@ -6,7 +6,8 @@ import 'package:get/get.dart';
 class ProductController extends GetxController{
   final ProductUsecase productUsecase;
   ProductController({required this.productUsecase});
-  var products = [].obs;
+  var products = <ProductEntity>[].obs;
+  var product=Rxn<ProductEntity>();
   var cart=[].obs;
   var isLoading = true.obs;
 
@@ -36,6 +37,21 @@ Future<void> getProudctByCategory(String category) async {
      
     isLoading(false);
   }
+  // get product by id
+  Future<void> getProductById(int productId) async {
+    isLoading(true);
+   try {
+      final result = await productUsecase.getProductById(productId);
+       product.value=result;
+        } catch (e) {
+     throw Exception("this is error in getproduct by id $e");
+   }
+    isLoading(false);
+  }
+
+
+
+  
   void addToCart(ProductEntity product){
     cart.add(product);
   }

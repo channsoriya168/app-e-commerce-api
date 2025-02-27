@@ -1,7 +1,9 @@
 
+import 'package:app_ecommerce_api/features/domain/entities/product_entity.dart';
 import 'package:app_ecommerce_api/features/presentations/binding/category_binding.dart';
 import 'package:app_ecommerce_api/features/presentations/binding/product_binding.dart';
 import 'package:app_ecommerce_api/features/presentations/views/home_view.dart';
+import 'package:app_ecommerce_api/features/presentations/views/product_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -28,6 +30,10 @@ class MyApp extends StatelessWidget {
          bindings:[
            CategoryBinding() , ProductBinding()
          ]
+         ),
+        GetPage(name: '/productDetail/:id',
+         page: () => ProductDetail(productId: int.parse(Get.parameters['id']!),),
+      
          ),
       ],
       debugShowCheckedModeBanner: false,
