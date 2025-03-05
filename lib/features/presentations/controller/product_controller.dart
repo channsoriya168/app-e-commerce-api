@@ -9,7 +9,10 @@ class ProductController extends GetxController{
   var products = <ProductEntity>[].obs;
   var product=Rxn<ProductEntity>();
   var cart=[].obs;
+  var total=0.obs;
+  var qty=0.obs;
   var isLoading = true.obs;
+  var isSelectfavorite=false.obs;
 
 @override
   void onInit(){
@@ -48,17 +51,8 @@ Future<void> getProudctByCategory(String category) async {
    }
     isLoading(false);
   }
-
-
-
-  
-  void addToCart(ProductEntity product){
-    cart.add(product);
+  void addProductToCart(ProductEntity productEntity){
+    cart.add(productEntity);
   }
-  void removeFromCart(ProductEntity product){
-    cart.remove(product);
-  }
-  void clearCart(){
-    cart.clear();
-  }
+
 }
