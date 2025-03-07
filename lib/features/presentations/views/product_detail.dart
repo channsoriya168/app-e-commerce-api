@@ -1,8 +1,8 @@
-import 'package:app_ecommerce_api/features/data/models/product_model.dart';
+
 import 'package:app_ecommerce_api/features/presentations/controller/product_controller.dart';
-import 'package:app_ecommerce_api/features/presentations/widget/rating_widget.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+
 import 'package:get/get.dart';
 
 class ProductDetail extends StatelessWidget {
